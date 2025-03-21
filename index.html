@@ -415,6 +415,186 @@
         color: #333;
     }
     </style>
+
+    <style>
+
+        /* Quiz Styles - Add this to your CSS file */
+.quiz-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border-top: 5px solid #FF8C47;
+}
+
+.quiz-steps {
+  position: relative;
+  min-height: 300px;
+}
+
+.quiz-step {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.quiz-step.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.question {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-btn {
+  background-color: #FF8C47;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 140, 71, 0.2);
+}
+
+.quiz-btn:hover {
+  background-color: #FF7720;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 140, 71, 0.3);
+}
+
+/* Loading Step Styles */
+.quiz-loading {
+  background-color: #fff;
+}
+
+.loader-container {
+  margin-top: 30px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #FF8C47;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.8s ease;
+}
+
+.loader-text {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Result Styles */
+.result-container {
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.result-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.result-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.result-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.call-action {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px dashed #FF8C47;
+}
+
+.call-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.quiz-phone {
+  display: inline-flex;
+  margin: 10px auto;
+  font-size: 24px;
+  padding: 15px 30px;
+}
+
+.incentive-text {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+#countdown {
+  font-weight: 700;
+}
+
+/* Make sure mobile view looks good */
+@media (max-width: 768px) {
+  .quiz-container {
+    max-width: 100%;
+  }
+  
+  .question {
+    font-size: 20px;
+  }
+  
+  .result-title {
+    font-size: 24px;
+  }
+  
+  .result-subtitle {
+    font-size: 16px;
+  }
+  
+  .quiz-phone {
+    font-size: 20px;
+    padding: 12px 25px;
+  }
+}
+
+    </style>
 </head>
 <body>
     <header class="header">
@@ -432,51 +612,85 @@
 
     <div class="page-content">
         <div class="container">
-            <div class="content-container">
-                <h1 class="main-title">Slash Your Car Insurance Premium By Up To <span class="highlight">70%</span> Today!</h1>
-                
-                <img src="insurance-banner.jpeg" alt="Car insurance savings comparison chart" class="banner-image">
-                
-                <h2 class="subtitle">Stop Overpaying For Auto Insurance</h2>
-                
-                <div class="phone-section">
-                    <h3 class="phone-title">Call Now For Your Free Quote:</h3>
-                    <a href="tel:+1234567890" class="phone-number">
-                        <span class="phone-icon">📞</span>
-                        <span class="phone-number-display">Loading...</span>
-                    </a>
-                    <p>Our insurance specialists are standing by to help you save!</p>
-                </div>
-                
-                <h3 class="subtitle" style="font-size: 22px;">Select Your Age Range For Personalized Rates:</h3>
-                
-                <div class="age-grid">
-                    <a href="#" class="phone-number age-button">18 to 24</a>
-                    <a href="#" class="phone-number age-button">25 to 34</a>
-                    <a href="#" class="phone-number age-button">35 to 44</a>
-                    <a href="#" class="phone-number age-button">45 to 54</a>
-                    <a href="#" class="phone-number age-button">55 to 64</a>
-                    <a href="#" class="phone-number age-button">65 & Over</a>
-                </div>
-                
-                <div class="tools-section">
-                    <div class="tool-card">
-                        <div class="tool-icon">🔍</div>
-                        <h4 class="tool-title">Compare Multiple Quotes</h4>
-                        <p class="tool-description">We help you compare prices from multiple insurance providers to find the best rates.</p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">💰</div>
-                        <h4 class="tool-title">Save Money Instantly</h4>
-                        <p class="tool-description">Many drivers save hundreds on their auto insurance after just one phone call.</p>
-                    </div>
-                    <div class="tool-card">
-                        <div class="tool-icon">🛡️</div>
-                        <h4 class="tool-title">Quality Coverage</h4>
-                        <p class="tool-description">Get the protection you need without the premium prices you don't.</p>
-                    </div>
-                </div>
-            </div>
+<!-- Quiz Section - Replace your existing age-grid section with this -->
+<div class="quiz-container">
+    <h3 class="subtitle" style="font-size: 22px;">Take This Quick Quiz To Find Your Best Rate</h3>
+    
+    <div class="quiz-steps">
+      <div id="quiz-step1" class="quiz-step active">
+        <p class="question">Are you currently insured?</p>
+        <div class="answer-buttons">
+          <button type="button" class="quiz-btn" onclick="nextStep(1, true)">Yes</button>
+          <button type="button" class="quiz-btn" onclick="nextStep(1, true)">No</button>
+        </div>
+      </div>
+      
+      <div id="quiz-step2" class="quiz-step">
+        <p class="question">How many vehicles do you need to insure?</p>
+        <div class="answer-buttons">
+          <button type="button" class="quiz-btn" onclick="nextStep(2, true)">1</button>
+          <button type="button" class="quiz-btn" onclick="nextStep(2, true)">2</button>
+          <button type="button" class="quiz-btn" onclick="nextStep(2, true)">3 or more</button>
+        </div>
+      </div>
+      
+      <div id="quiz-step3" class="quiz-step">
+        <p class="question">What is your primary reason for shopping?</p>
+        <div class="answer-buttons">
+          <button type="button" class="quiz-btn" onclick="nextStep(3, true)">Lower Rates</button>
+          <button type="button" class="quiz-btn" onclick="nextStep(3, true)">Better Coverage</button>
+          <button type="button" class="quiz-btn" onclick="nextStep(3, true)">Both</button>
+        </div>
+      </div>
+      
+      <div id="quiz-loading1" class="quiz-step quiz-loading">
+        <p class="question">Analyzing Your Answers...</p>
+        <div class="loader-container">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="loader-text">25%</p>
+        </div>
+      </div>
+      
+      <div id="quiz-loading2" class="quiz-step quiz-loading">
+        <p class="question">Searching For Eligible Discounts...</p>
+        <div class="loader-container">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="loader-text">65%</p>
+        </div>
+      </div>
+      
+      <div id="quiz-loading3" class="quiz-step quiz-loading">
+        <p class="question">Confirming Your Eligibility...</p>
+        <div class="loader-container">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="loader-text">90%</p>
+        </div>
+      </div>
+      
+      <div id="quiz-result" class="quiz-step">
+        <div class="result-container">
+          <div class="result-icon">🎉</div>
+          <h3 class="result-title">Congratulations!</h3>
+          <p class="result-subtitle">You may qualify for our <span class="highlight">Premium Savings Program</span> with discounts up to 70%!</p>
+          
+          <div class="call-action">
+            <p class="call-text">Call now to speak with an insurance specialist:</p>
+            <a href="tel:+1234567890" class="phone-number quiz-phone">
+              <span class="phone-icon">📞</span>
+              <span class="phone-number-display">Loading...</span>
+            </a>
+            <p class="incentive-text">Limited time offer! Call within <span id="countdown">10:00</span> to lock in your rate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
         </div>
     </div>
 
@@ -544,9 +758,7 @@
                 $(".phone-number-display").text(parse_number(`${number}`));
             }
         });
-    </script>
-    
-    <script>
+
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
@@ -573,12 +785,88 @@
                 agentModal.style.display = 'none';
             }
         });
-    </script>
+
+        // Quiz functionality - Add this to your JS file or in a script tag at the bottom of your HTML
+function nextStep(currentStep, isValid) {
+  if (!isValid) {
+    document.getElementById('quiz-noqval').style.display = 'block';
+    return;
+  }
+  
+  // Hide current step
+  document.getElementById(`quiz-step${currentStep}`).classList.remove('active');
+  
+  // Show loading steps with slight delay between each
+  if (currentStep === 3) {
+    const loadingSteps = ['quiz-loading1', 'quiz-loading2', 'quiz-loading3', 'quiz-result'];
+    let delay = 0;
+    
+    loadingSteps.forEach((stepId, index) => {
+      setTimeout(() => {
+        // Hide previous loading step if there is one
+        if (index > 0) {
+          document.getElementById(loadingSteps[index-1]).classList.remove('active');
+        }
+        
+        // Show current loading step
+        document.getElementById(stepId).classList.add('active');
+        
+        // If this is a loading step (not the result), animate the progress bar
+        if (stepId.includes('loading')) {
+          const progressFill = document.querySelector(`#${stepId} .progress-fill`);
+          setTimeout(() => {
+            progressFill.style.width = '100%';
+          }, 100);
+        }
+        
+        // Start countdown timer when result is shown
+        if (stepId === 'quiz-result') {
+          startCountdown();
+        }
+      }, delay);
+      
+      // Different delays for different steps
+      delay += stepId.includes('loading') ? 2000 : 500;
+    });
+  } else {
+    // Show next question step immediately
+    document.getElementById(`quiz-step${currentStep + 1}`).classList.add('active');
+  }
+}
+
+// Countdown timer for the "lock in your rate" message
+function startCountdown() {
+  let minutes = 10;
+  let seconds = 0;
+  
+  const countdownInterval = setInterval(() => {
+    if (seconds === 0) {
+      if (minutes === 0) {
+        clearInterval(countdownInterval);
+        return;
+      }
+      minutes--;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    
+    // Format the time to always display two digits
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+    
+    // Update the countdown display
+    document.getElementById('countdown').textContent = `${formattedMinutes}:${formattedSeconds}`;
+  }, 1000);
+}
+
+// Make sure phone numbers are populated in all places
+document.addEventListener('DOMContentLoaded', function() {
+  // Your existing code to fetch and display phone numbers will apply to these elements as well
+  // since they have the same classes (.phone-number and .phone-number-display)
+});
 
 
-    <script>
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

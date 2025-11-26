@@ -18,7 +18,36 @@
     <title>Insurance Auto World - Save On Your Car Insurance Today</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
+  
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17642458204"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17642458204');
+    </script>
+
+    <!-- Event snippet for Click to call conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      console.log(url);
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17642458204/Y9q-CIPejccbENyYytxB',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
+
     <style>
         /* Reset and Base Styles */
         * {
@@ -665,7 +694,7 @@
         </div>
         <div class="phone-section">
           <h3 class="phone-title">Call Now For Your Free Quote:</h3>
-          <a href="tel:+1234567890" class="phone-number">
+          <a href="tel:+1234567890" class="phone-number" onclick="return gtag_report_conversion(this.href);">
               <span class="phone-icon">📞</span>
               <span class="phone-number-display">Loading...</span>
           </a>
@@ -730,7 +759,7 @@
           
           <div class="call-action">
             <p class="call-text">Call now to speak with an insurance specialist:</p>
-            <a href="tel:+1234567890" class="phone-number quiz-phone">
+            <a href="tel:+1234567890" class="phone-number quiz-phone" onclick="return gtag_report_conversion(this.href);">
               <span class="phone-icon">📞</span>
               <span class="phone-number-display">Loading...</span>
             </a>
@@ -782,7 +811,7 @@
         <div class="agent-icon">👨‍💼</div>
         <h3 class="agent-title">Connecting You With Our Best Agent</h3>
         <p class="agent-subtitle">Our insurance specialists are ready to help you find the perfect coverage at the lowest rates!</p>
-        <a href="tel:+1234567890" class="phone-number">
+        <a href="tel:+1234567890" class="phone-number" onclick="return gtag_report_conversion(this.href);">
             <span class="phone-icon">📞</span>
             <span class="phone-number-display">Loading...</span>
         </a>
